@@ -1,9 +1,6 @@
-# cst438
+California State University at Monterey Bay
 
-# Evan Reporting in
-# Matt Reporting in
-# Uriel Reporting in
-=======
-ElasticSearch Project
+CST438 Software Engineering Group Project Members:
+Uriel Antonio Evan Schwander Matt Wall
 
-testing
+Project: Elasticsearch Demonstration Using Amazon Web Services
