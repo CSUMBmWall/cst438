@@ -36,9 +36,9 @@ Config
 
 cluster.name: awstutorialseries
 
-cloud.aws.access_key: AKIAITNNXLFRARHFPHEA
+cloud.aws.access_key: 
 
-cloud.aws.secret_key: iZOQSPn1eA8ZzpULKsEZg9ntj3i0/LoUewUKdIXI
+cloud.aws.secret_key: 
 
 cloud.aws.region: us-east-1
 
