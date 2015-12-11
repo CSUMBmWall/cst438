@@ -52,22 +52,22 @@
 
 <h2>{{all}}</h2>
 
+{{items}}
+
 
 {% endif %}
 
 {% if doing == 2 %}
 <h2>Searching star wars</h2>
 
-
-
 {% for key, value in answer.items %}
 
 
 <h2>{{key}}: {{value}}</h2>
 
-{% for x, y in value.items %}
-
-{% endfor %}
+{% if isinstance(value, list)%}
+<h2> LIST ALERT</h2>
+{% endif %}
 
 <hr />
 {% endfor %}
@@ -76,6 +76,8 @@
 {% if doing == 3 %}
 {% for key, value in answer.items%}
 <h2>{{key}}: {{value}}</h2>
+
+
 <hr />
 {% endfor %}
 {% endif%}

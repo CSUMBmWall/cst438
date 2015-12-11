@@ -4,6 +4,7 @@ from django.core.mail import send_mail
 from .forms import SearchForm
 import requests
 from elasticsearch import Elasticsearch
+from models import pokeTypeFormatter
 
 # Create your views here.
 def home(request):
@@ -85,8 +86,12 @@ def home(request):
 
 		# 3 doc_types (pokemon,type,people)
 
+
+
 		poke = es.search(index="pk", body={"query": {"match": {'name':form_search}}})
 		#poke = es.search(body={"query": {"query_string": {"query":form_search, "fields": ["name"]}}})
+
+
 
 		star = es.search(index="sw", body={"query": {"match": {'name':form_search}}})
 		pokelike = es.search(index="pk", body={"query": {"prefix": {'name':form_search}}})
@@ -97,6 +102,7 @@ def home(request):
 		if(poke['hits']['total']!=0):
 			answer=poke['hits']['hits'][0]['_source']
 			second=poke['hits']['hits'][0]['_source']['types'][0]['name']
+			temp=pokeTypeFormatter(second)
 			# check how to go over more than one type and cycle through the innefective
 			pokeType= es.search(index="type", body={"query": {"match": {'name':second}}})
 			
@@ -112,7 +118,7 @@ def home(request):
 				"superEffective":superEffective,
 				"resistance":resistance,
 				"all":"all: %s" %(pokeType['hits']['hits'][0]['_source']),
-				"items": items,
+				"items": temp,
 				"doing":1
 
 			}
