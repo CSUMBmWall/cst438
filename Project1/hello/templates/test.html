@@ -1,0 +1,28 @@
+<h2>Searched For: {{search}}</h2>
+ 
+{% for x in items %}
+<p> {{ x.name }} - {{ x.created|date:"D d M Y" }}</p>
+ 
+<p>{{ x.description }}</p>
+<hr />
+{% endfor %}
+
+
+
+<h1> {{title}} </h1>
+
+<!-- {{user}} -->
+
+<form method ='POST' action =''>{% csrf_token %}
+{{form.as_p}}
+
+
+
+</form>
+
+<h1>{{answer}}</h1>
+
+<h1>{{innefective}}</h1>
+<h1>{{superEffective}}</h1>
+<h1>{{resistance}}</h1>
+<h1>{{all}}</h1>

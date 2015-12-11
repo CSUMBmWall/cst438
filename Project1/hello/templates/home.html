@@ -1,16 +1,83 @@
 
-
 <h1> {{title}} </h1>
 
 <!-- {{user}} -->
 
+
 <form method ='POST' action =''>{% csrf_token %}
 {{form.as_p}}
 
-<input type='submit' value='Search' />
-<!-- <input type = 'text'>
 
-</input> -->
 
 </form>
+
+{% if doing == 1 %}
+
+
+<div id= "testing">
 <h1>{{answer}}</h1>
+
+<h2>Type</h2>
+{% for x in type %}
+
+<h2>{{x.name}}</h2>
+
+{% endfor %}
+<hr />
+
+
+<h2>Innefective</h2>
+{% for x in innefective %}
+
+<h2>{{x.name}}</h2>
+
+{% endfor %}
+<hr />
+
+<h2>superEffective</h2>
+{% for x in superEffective %}
+
+<h2>{{x.name}}</h2>
+
+{% endfor %}
+<hr />
+
+<h2>resistance</h2>
+{% for x in resistance %}
+
+<h2>{{x.name}}</h2>
+
+{% endfor %}
+<hr />
+
+<h2>{{all}}</h2>
+
+
+{% endif %}
+
+{% if doing == 2 %}
+<h2>Searching star wars</h2>
+
+
+
+{% for key, value in answer.items %}
+
+
+<h2>{{key}}: {{value}}</h2>
+
+{% for x, y in value.items %}
+
+{% endfor %}
+
+<hr />
+{% endfor %}
+{% endif %}
+
+{% if doing == 3 %}
+{% for key, value in answer.items%}
+<h2>{{key}}: {{value}}</h2>
+<hr />
+{% endfor %}
+{% endif%}
+
+</div>
