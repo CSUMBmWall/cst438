@@ -40,6 +40,9 @@ class pokeTypeFormatter:
                 for type in self.finalDict[mult]:
                     self.finalString += self.typeToString(type)
                     
+        self.finalList = self.finalString.split('\n')
+        self.finalList = [x for x in self.finalList if x != '']
+                    
         
     def typeToString(self, type):
         '''
@@ -48,6 +51,9 @@ class pokeTypeFormatter:
         stringToReturn = ''
         stringToReturn += '\t' + type.capitalize() + '\n'
         return stringToReturn
+        
+    def getList(self):
+        return self.finalList
         
     def __str__(self):
         return self.finalString
